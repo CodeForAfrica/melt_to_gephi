@@ -5,7 +5,7 @@ Credits
 Development Lead
 ----------------
 
-* Robin Kiplangat <robyne.kiplangat@gmail.com>
+* Robin Kiplangat <robyne [dot] kiplangat [at] mail [dot] com>
 
 Contributors
 ------------
