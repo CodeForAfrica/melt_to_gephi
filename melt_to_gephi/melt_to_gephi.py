@@ -75,19 +75,16 @@ def get_source_target():
 
         return frame
 
-def prep_gephi_file():
-
-    """[summary]
-    """
-    list_of_df = []
-    gephi_ready_file = os.path.join(clean_folder,fileName)
-    for item in raw_files:
-        with open(str(item), 'r') as f:
-            file  = open(f,'r')
-        frame = get_source_target()
-        list_of_df.append(frame)
-        gephi_file = pd.concat(list_of_df, ignore_index=True)
-        gephi_file.to_csv(gephi_ready_file)
+def prep_gephi_file(gephi_folder):
+        """Select the folder to save the gephi files
+            and drop the csv
+        Returns
+            Custom file : CSV file with the set `fileName` that is
+            gephi ready.
+        """
+        gephi_ready_file = gephi_folder + fileName
+        gephi_file = get_source_target().reset_index().drop('index',axis=1)
+        gephi_file.to_csv(gephi_ready_file)  #+ '.csv')
 
 if __name__ == "__main__":
     fileName = 'tigray_crisis.csv'
