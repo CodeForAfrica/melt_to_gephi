@@ -62,17 +62,18 @@ def collate_amplifyers():
         return amplifyers
 
 def get_source_target():
-  """  Grab the source and target columns for the networks for the source file
-  Returns:
-      frame : A dataframe with assigned columns and the corresponding tweet
-  """
-  frame = collate_amplifyers()
-  # source = frame['hit_sentence'].split(':')[0].split(' ')[1]
-  source = frame['hit_sentence'].apply(lambda x: x.split(':')[0].split(' ')[1])
-  frame.rename(columns={"influencer": "target",'hit_sentence' :'tweet'},inplace=True)
-  frame['source'] = source
+        """  Grab the source and target columns for the networks for the source file
+        Returns:
+          frame : A dataframe with assigned columns and the corresponding tweet
+        """
+        frame = collate_amplifyers()
+        # source = frame['hit_sentence'].split(':')[0].split(' ')[1]
+        source = frame['hit_sentence'].apply(lambda x: x.split(':')[0].split(' ')[1])
+        frame['hit_sentence'] = frame['hit_sentence'].apply(lambda x: x.split(':')[1]).copy()
+        frame.rename(columns={"influencer": "target",'hit_sentence' :'tweet'},inplace=True)
+        frame['source'] = source
 
-  return frame
+        return frame
 
 def prep_gephi_file():
 
