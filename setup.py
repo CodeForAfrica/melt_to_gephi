@@ -41,7 +41,7 @@ setup(
     license="MIT license",
     long_description=readme + '\n\n' + history,
     include_package_data=True,
-    keywords='meltgephi','gephi','meltwater',
+    keywords=['meltgephi','gephi','meltwater'],
     name='melt_to_gephi',
     packages=find_packages(include=['melt_to_gephi', 'melt_to_gephi.*']),
     setup_requires=setup_requirements,
