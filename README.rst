@@ -25,12 +25,32 @@ A simpler way of restructituring Meltwater data to a gephi ready data file
 
 Features
 --------
- Creates a `gephi` ready file with the columns
+Creates a `gephi` ready file with the columns
+ 
+ .. list-table:: Gephi File Structure
+   :widths: 25 25 50 25 25 25
+   :header-rows: 1
 
-   |source | target | tweet | url | trend | post_type
-   |-------|--------|-------|-----|------ |----------
-   |@s1    |@tar1   |x.x.x  |url1 |#test1 |RT
-   |@s2    |@tar2   |.x.x.  |url2 |#test2 |QT
+   * - source
+     - target
+     - tweet
+     - trend
+     - url
+     - post_type
+   * - @s1
+     - @tar1
+     - some tweet text
+     - #tag1
+     - Tweet 1 url 
+     - RT
+   * - @s2
+     - @tar2
+     - Another tweet text
+     - #tag2
+     - Tweet 2 url 
+     - QT
+
+
 
 
 Credits
@@ -39,3 +59,5 @@ Credits
 This package was created with Cookiecutter_.
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+
+
