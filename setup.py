@@ -18,7 +18,7 @@ test_requirements = [ ]
 
 setup(
     author="Robin Kiplangat",
-    author_email='robyne.kiplangat@gmail.com',
+    author_email='robyne[dot]kiplangat[at]gmail[.]com',
     python_requires='>=3.5',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
@@ -41,13 +41,13 @@ setup(
     license="MIT license",
     long_description=readme + '\n\n' + history,
     include_package_data=True,
-    keywords='melt_to_gephi',
+    keywords='meltgephi','gephi','meltwater',
     name='melt_to_gephi',
     packages=find_packages(include=['melt_to_gephi', 'melt_to_gephi.*']),
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/4bic/melt_to_gephi',
-    version='0.1.0',
+    version='0.1.1',
     zip_safe=False,
 )
