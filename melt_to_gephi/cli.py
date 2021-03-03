@@ -4,13 +4,24 @@ import click
 
 
 @click.command()
-def main(args=None):
-    """Console script for melt_to_gephi."""
-    click.echo("Replace this message by putting your code into "
-               "melt_to_gephi.cli.main")
-    click.echo("See click documentation at https://click.palletsprojects.com/")
+@click.option('--files',default = './data',
+            help='This is the Folder path with the rawfiles')
+
+@click.option('--filename',default='gephi_ready_file',
+            help='assign filename to the gephi ready file')
+
+def main():
+    """This is the Console script for melt_to_gephi.
+    """
+    click.echo("use 'melt_to_gephi --help' to see options")
+    click.echo("See documentation at https://melt-to-gephi.readthedocs.io/en/latest/installation.html")
     return 0
+# def cli(files):
+#     """Refers to a Folder path with the rawfiles
+#     """
+#     click.echo("use 'melt_to_gephi --help' to see options" % files)
+#     return 0
 
-
+#
 if __name__ == "__main__":
-    sys.exit(main())  # pragma: no cover
+    main()  # pragma: no cover
