@@ -23,8 +23,9 @@ def read_file(trend_file):
         Args:
             file (csv): The Downloaded data file from meltwater
         Returns:
-            dataframe : A dataframe with an additional column corresponding to the twitter
-                        trend / keyword collected by.
+            dataframe : A dataframe with an additional column
+                        corresponding to the twitter trend / keyword
+                        collected by.
         """
         df_raw = pd.read_csv(trend_file,parse_dates = ['Date'],
                                encoding='utf-16',
@@ -33,19 +34,32 @@ def read_file(trend_file):
         df = clean_df(df_raw).assign(trend=hashtag)
         return df
 
-def collate_amplifyers():
-  """Grab the RT and QT columns then concat assign post type and hashtag
-  Returns:
-      amplifyers: A dataframe with a filtered columns bearing the fields with the
-                  network
-  """
-  frame = read_file(file)
-  df_rt = frame[frame['hit_sentence'].str.startswith("RT")].assign(post_type='RT')
-  df_qt = frame[frame['hit_sentence'].str.startswith("QT")].assign(post_type='QT')
-  df_net = pd.concat([df_rt,df_qt])
-  amplifyers = df_net[['hit_sentence','influencer','post_type','url','date','trend']]
+def gather_trend_files(raw_files):
+        """Read and possibly merge files with the
+            assigned trend name column
+        Args:
+            raw_file : Folder location with the assigned files
+        Returns:
+            all_trends : A merged dataframe with all trends concatenated
+         """
+        list_of_df = [read_file(trend_file) for trend_file in raw_files]
+        all_trends = pd.concat(list_of_df, ignore_index=True)
+        return all_trends
 
-  return amplifyers
+def collate_amplifyers():
+        """Grab the RT and QT columns then concat assign post type and hashtag
+        Returns:
+            amplifyers: A dataframe with a filtered columns bearing the fields with the
+                          network
+        """
+        select_columns = ['hit_sentence','influencer','post_type','url','date','trend']
+        frame = gather_trend_files(raw_files)
+        df_rt = frame[frame['hit_sentence'].str.startswith("RT")].assign(post_type='RT')
+        df_qt = frame[frame['hit_sentence'].str.startswith("QT")].assign(post_type='QT')
+        df_net = pd.concat([df_rt,df_qt])
+        amplifyers = df_net[select_columns].copy()
+
+        return amplifyers
 
 def get_source_target():
   """  Grab the source and target columns for the networks for the source file
