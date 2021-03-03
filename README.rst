@@ -25,13 +25,17 @@ A simpler way of restructituring Meltwater data to a gephi ready data file
 
 Features
 --------
+ Creates a `gephi` ready file with the columns
 
-* TODO
+   |source | target | tweet | url | trend | post_type
+   |-------|--------|-------|-----|------ |----------
+   |@s1    |@tar1   |x.x.x  |url1 |#test1 |RT
+   |@s2    |@tar2   |.x.x.  |url2 |#test2 |QT
+
 
 Credits
 -------
 
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+This package was created with Cookiecutter_.
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
