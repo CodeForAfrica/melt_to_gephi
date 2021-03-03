@@ -22,7 +22,7 @@ deploy:
   distributions: sdist bdist_wheel
   user: 4bic
   password:
-    secure: PLEASE_REPLACE_ME
+    secure: 4Amalegend
   on:
     tags: true
     repo: 4bic/melt_to_gephi
