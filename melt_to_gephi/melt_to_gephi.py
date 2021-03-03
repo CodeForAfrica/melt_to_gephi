@@ -5,17 +5,17 @@ from glob import glob
 import sys
 
 def clean_df(frame):
-  """Restructure the dataframe to a friedlier state
-  Args:
-      frame : a dataframe with camel cased columns, duplicates
-  Returns:
-      frame: a friendlier and cleaner dataframe
-  """
-  #edit colnames
-  frame.columns = frame.columns.str.lower().str.replace(" ", "_")
-  #drop nulls
-  frame.dropna(how = 'all', axis =1 , inplace = True)
-  return frame
+      """Restructure the dataframe to a friedlier state
+      Args:
+          frame : a dataframe with camel cased columns, duplicates
+      Returns:
+          frame: a friendlier and cleaner dataframe
+      """
+      #edit colnames
+      frame.columns = frame.columns.str.lower().str.replace(" ", "_")
+      #drop nulls
+      frame.dropna(how = 'all', axis =1 , inplace = True)
+      return frame
 
 def read_file(trend_file):
         """Read meltwater files and open with proper encoding
@@ -79,16 +79,15 @@ def prep_gephi_file(gephi_folder):
         """Select the folder to save the gephi files
             and drop the csv
         Returns
-            Custom file : CSV file with the set `fileName` that is
+            Custom file : CSV file with the set `FILENAME` that is
             gephi ready.
         """
-        gephi_ready_file = gephi_folder + fileName
+        gephi_ready_file = gephi_folder + str(FILENAME)
         gephi_file = get_source_target().reset_index().drop('index',axis=1)
-        gephi_file.to_csv(gephi_ready_file)  #+ '.csv')
+        gephi_file.to_csv(gephi_ready_file + '.csv')
 
 if __name__ == "__main__":
-    fileName = 'tigray_crisis.csv'
-    raw_files = glob('data/*.csv')
-    clean_folder =  'data/gephi_ready' #'cleaned_nodes_edges/'
-    # main()
-    prep_gephi_file(raw_files)
+    FILENAME =  'gephi_ready_tigray_test' #eg'tigray_crisis.csv'
+    raw_files = glob('./data/*.csv')
+    gephi_folder =  './data/gephi_ready/'
+    prep_gephi_file(gephi_folder)
