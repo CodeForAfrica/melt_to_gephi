@@ -32,13 +32,13 @@ You can either clone the public repository:
 
 .. code-block:: console
 
-    $ git clone git://github.com/4bic/melt_to_gephi
+    $ git clone git://github.com/CodeForAfrica/melt_to_gephi
 
 Or download the `tarball`_:
 
 .. code-block:: console
 
-    $ curl -OJL https://github.com/4bic/melt_to_gephi/tarball/master
+    $ curl -OJL https://github.com/CodeForAfrica/melt_to_gephi/tarball/master
 
 Once you have a copy of the source, you can install it with:
 
@@ -47,5 +47,5 @@ Once you have a copy of the source, you can install it with:
     $ python setup.py install
 
 
-.. _Github repo: https://github.com/4bic/melt_to_gephi
-.. _tarball: https://github.com/4bic/melt_to_gephi/tarball/master
+.. _Github repo: https://github.com/CodeForAfrica/melt_to_gephi
+.. _tarball: https://github.com/CodeForAfrica/melt_to_gephi/tarball/master

@@ -1,4 +1,4 @@
-Welcome to melt_to_gephi's documentation!
+Welcome to melt_to_gephi's Documentation!
 =========================================
 
 .. toctree::

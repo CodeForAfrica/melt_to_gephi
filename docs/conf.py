@@ -47,7 +47,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'melt_to_gephi'
-copyright = "2021, Robin Kiplangat"
+copyright = "2021, Code For Africa"
 author = "Robin Kiplangat"
 
 # The version info for the project you're documenting, acts as replacement
@@ -157,6 +157,3 @@ texinfo_documents = [
      'One line description of project.',
      'Miscellaneous'),
 ]
-
-
-
